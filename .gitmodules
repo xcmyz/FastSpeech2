@@ -1,0 +1,3 @@
+[submodule "mandarin/frontend"]
+	path = mandarin/frontend
+	url = https://github.com/LingLing-Speech/mandarin-tts-frontend-python.git
