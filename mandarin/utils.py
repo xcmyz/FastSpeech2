@@ -16,6 +16,32 @@ def process_text(train_text_path):
         return txt
 
 
+def get_phone_map():
+    phone_map_dict = dict()
+    phone_map = os.path.join("frontend", "phone.map")
+    with open(phone_map, "r", encoding="utf-8") as f:
+        for line in f.readlines():
+            key, value = line[:-1].split(" ")
+            phone_map_dict.update({key: int(value)})
+    return phone_map_dict
+
+
+def parse_duration(duration, phone):
+    len_duration = len(duration)
+    new_duration = list()
+    cur_pointer = 0
+    for p in phone:
+        cnt = 0
+        for i in range(cur_pointer, len_duration):
+            if p == duration[i]:
+                cnt += 1
+            else:
+                break
+        new_duration.append(cnt)
+        cur_pointer += cnt
+    return new_duration
+
+
 def get_param_num(model):
     num_param = sum(param.numel() for param in model.parameters())
     return num_param
