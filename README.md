@@ -1,4 +1,4 @@
-# FastSpeech2 (In Building...)
+# FastSpeech2 (Building...)
 The Implementation of FastSpeech2 Based on Pytorch which can synthesize English and Mandarin.
 
 ## Usage
